@@ -1,56 +1,56 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
-import { githubSearchApiEndpoint, githubToken } from '../../config';
+import { githubSearchApiEndpoint } from '../../config';
 import axios from "axios";
 import authConfig from '../../handlers/authConfig';
 import UserSection from './userStyles';
+
+interface userInterface {
+    login: string
+    name: string
+    img: string
+    followers: number
+    following: number
+    starredRepositories: number
+}
+
+interface errorInterface {
+    message: string;
+    type: string
+}
 
 
 const User: React.FC = () => {
     const params = useParams();
     const searchLogin = params.login;
-    interface userInterface {
-        login: string
-        name: string
-        img: string
-        followers: number
-        following: number
-        starredRepositories: number
-    }
-
-    interface errorInterface {
-        message: string;
-        type: string
-    }
     const [error, setError] = useState<errorInterface | null>(null);
     const [user, setUser] = useState<userInterface | null>(null);
     const getUserQuery = `
-    query{
-        user(login:"${searchLogin}") {
-          login
-          avatarUrl
-          name
-          followers {
-           totalCount 
-        }
-          following{
-           totalCount 
-        }
-        starredRepositories {
-            totalCount
-           }
-      }
-      }
+                query{
+                    user(login:"${searchLogin}") {
+                    login
+                    avatarUrl
+                    name
+                    followers {
+                    totalCount 
+                    }
+                    following{
+                    totalCount 
+                    }
+                    starredRepositories {
+                        totalCount
+                    }
+                }
+                }
     `
     const getUser = async () => {
-        const config = await authConfig();
-        const data = await axios.post(githubSearchApiEndpoint, {
+        const config = authConfig();
+        await axios.post(githubSearchApiEndpoint, {
             query: getUserQuery,
         },
             config
         )
             .then((response) => {
-                console.log(response.data);
                 if (response.data.errors) {
                     setError(response.data.errors[0]);
                     return;
@@ -71,6 +71,7 @@ const User: React.FC = () => {
             })
             .catch((error) => {
                 console.log('error', error);
+                setError(error);
             })
     }
     useEffect(() => {

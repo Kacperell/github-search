@@ -1,5 +1,5 @@
 import { githubToken } from "../config";
-const authConfig = async () => {
+const authConfig = () => {
     const config = {
         headers: {
             'Content-type': 'application/json',
