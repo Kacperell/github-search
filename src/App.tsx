@@ -14,7 +14,10 @@ import { SearchContext } from './contexts/SearchContext';
 import Home from './views/Home';
 import User from './views/User';
 
+
+
 const App: React.FC = () => {
+
   const [searchText, setSearchText] = useState<string | null>(null);
   return (
     <SearchContext.Provider value={{ searchText, setSearchText }}>
@@ -23,7 +26,7 @@ const App: React.FC = () => {
         <Header />
         <main className='container'>
           <Routes>
-            <Route path="/user/:id" element={<User />} />
+            <Route path="/user/:login" element={<User />} />
             <Route path="/" element={<Home />} />
             <Route
               path="*"

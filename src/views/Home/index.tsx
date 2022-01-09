@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useEffect } from 'react'
 import { useSearchContext } from '../../contexts/SearchContext';
+import useDebounce from "../../hooks/useDebounce";
+
+
+
 const Home: React.FC = () => {
+
+
     const { searchText } = useSearchContext();
+    const debouncedSearch = useDebounce(searchText, 500);
+
+
+
+    useEffect(() => {
+        console.log("HOME debouncedSearch");
+        if (!searchText) return;
+
+
+
+
+    }, [debouncedSearch])
+
+    useEffect(() => {
+
+    }, [])
+
     return (
         <>
-            <h1>Home</h1>
-            <p>Search: {searchText}</p>
+            <p>{searchText}</p>
+
         </>
     )
 }
