@@ -4,6 +4,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import GlobalStyle from './styles/Global';
 
 //In this small application route-based code splitting it is not necessary.
 //With more views, we would use code splitting with lazy and suspense to load pages dynamically.
@@ -15,7 +16,8 @@ const App: React.FC = () => {
   return (
     <>
       <BrowserRouter>
-        <main>
+        <GlobalStyle />
+        <main className='container'>
           <Routes>
             <Route path="/user/:id" element={<User />} />
             <Route path="/" element={<Home />} />
