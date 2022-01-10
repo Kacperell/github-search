@@ -76,6 +76,7 @@ const User: React.FC = () => {
     }
     useEffect(() => {
         getUser();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <UserSection>
