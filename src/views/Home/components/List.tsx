@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-
+import { listItemInterface } from '../index';
 interface Props {
-    results: Array<any>,
+    results: Array<listItemInterface>,
 
 }
 

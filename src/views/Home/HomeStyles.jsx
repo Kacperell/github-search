@@ -16,7 +16,7 @@ const HomeSection = styled.section`
             padding-bottom:1.5rem;
             border-top:1px solid var(--lightGray);
             .imgBox{
-                max-width:20%;
+                max-width:25%;
                 margin-right:2%;
                 .avatar,.repo-icon{
                     width:30px;
@@ -33,6 +33,7 @@ const HomeSection = styled.section`
             .info{
                 display:flex;
                 flex-direction:column;
+                max-width:75%;
                 &__title{
                     color:#0969da;
                     font-weight:600;

@@ -10,6 +10,30 @@ import List from './components/List';
 // At the beginning we do any search to fill the list
 const defaultSearchOnStart = "React";
 
+export interface listItemInterface {
+  // TODO, it will be better to separate it for two interactions (repo, user) extendsed from itemResult with type enum ('repo', 'user')
+  node: {
+    name: string
+    avatarUrl: string
+    login: string
+    id: string;
+    licenseInfo: {
+      name: string
+    }
+    owner: {
+      login: string
+    };
+    description: string
+    primaryLanguage: {
+      color: string
+      name: string
+    }
+    updatedAt: string
+    bio: string
+    location: any
+    stargazerCount: number
+  }
+}
 
 const Home: React.FC = () => {
   const { searchText } = useSearchContext();
@@ -20,7 +44,7 @@ const Home: React.FC = () => {
   }
   const [error, setError] = useState<errorInterface | null>(null);
   const [resultsCount, setResultsCount] = useState<number>(0);
-  const [resultsList, setResultsList] = useState<any>([]);
+  const [resultsList, setResultsList] = useState<listItemInterface[]>([]);
 
   // for the sake of simplicity, without pagination, we want max 40 results
   const searchQuery = `query {
@@ -119,7 +143,6 @@ const Home: React.FC = () => {
       //Only when the user has not used the search  yet
       fetchData();
     }
-
   }, [])
 
   return (
