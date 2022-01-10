@@ -1,3 +1,6 @@
+# Github search
+
+Preview: https://github-search-kacperell.vercel.app/
 
 ### `npm install`
 Installation
