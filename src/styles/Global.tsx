@@ -3,6 +3,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     --black: #24292f;
     --gray: #57606a;
+    --lightGray: #D3D3D3;
     --primaryColor:#24292f;
     box-sizing: border-box;
     font-size: 12px;
@@ -14,9 +15,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   body {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-    line-height:2;
+    line-height:1.6;
   }
   a {
     text-decoration: none;

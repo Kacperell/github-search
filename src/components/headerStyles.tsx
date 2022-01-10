@@ -18,13 +18,13 @@ align-items:center;
 }
 input{
     padding: 0.5rem 1rem;
-    border: 1px solid var(--gray);
     border: 1px solid white;
     background:0;
     color:white;
     border-radius:5px;
-    width:14rem;
+    width:15rem;
     transition: all 0.2s ease-in-out;
+    font-size:1rem;
     &:hover,
     &:focus {
         outline:none;
