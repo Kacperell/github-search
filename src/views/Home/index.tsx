@@ -113,7 +113,6 @@ const Home: React.FC = () => {
   }, [debouncedSearch])
 
   useEffect(() => {
-    console.log("useEffect")
     if (!searchText) {
       // At the beginning we do any search to fill the list
       //Only when the user has not used the search  yet
