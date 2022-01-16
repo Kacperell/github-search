@@ -1,12 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
-  html {
-    --black: #24292f;
-    --gray: #57606a;
-    --lightGray: #D3D3D3;
-    --primaryColor:#24292f;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+html {
+    --black: #000000;
+    --lightGray: #D0D7DE;
+    --listItemBorderColor:#C4C4C4;
+    --primaryColor:#24292F;
+    --darkestGray:#6F7781;
     box-sizing: border-box;
-    font-size: 12px;
 
   }
   *, *:before, *:after {
@@ -15,9 +18,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   body {
-    font-size: 1.3rem;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-    line-height:1.6;
+    font-family: 'Roboto', sans-serif;  
+
+    font-size: 16px;
+  line-height: 24px;
   }
   a {
     text-decoration: none;

@@ -6,8 +6,8 @@ margin-bottom:1rem;
 padding:0.8rem 0;
 .container{
     display:flex;
-justify-content:space-between;
-align-items:center;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
@@ -18,13 +18,15 @@ align-items:center;
 }
 input{
     padding: 0.5rem 1rem;
-    border: 1px solid white;
+    border: 1px solid var(--lightGray);
     background:0;
-    color:white;
+    color:var(--lightGray);
     border-radius:5px;
-    width:15rem;
+    width:17rem;
     transition: all 0.2s ease-in-out;
-    font-size:1rem;
+    font-size: 16px;
+    line-height: 24px;
+
     &:hover,
     &:focus {
         outline:none;

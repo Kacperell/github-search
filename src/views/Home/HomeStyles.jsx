@@ -1,23 +1,27 @@
 import styled from 'styled-components';
 
 const HomeSection = styled.section`
-
-.resultCount{
-    font-size:2rem;
-    font-weight:600;
-  
+display: flex;
+flex-direction: column;
+.resultCount{ 
+    color:var(--black);
+    margin-top:20px;
+    margin-bottom:20px;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 32px;
+    
 }
 .resultsList{
       
         li{
             display:flex;
             list-style:none;
-            padding-top:1.5rem;
-            padding-bottom:1.5rem;
-            border-top:1px solid var(--lightGray);
+            padding-top:20px;
+            padding-bottom:20px;
+            border-top:1px solid var(--listItemBorderColor);
             .imgBox{
-                max-width:25%;
-                margin-right:2%;
+                margin-right:10.5px;
                 .avatar,.repo-icon{
                     width:30px;
                     max-width:100%;
@@ -26,7 +30,7 @@ const HomeSection = styled.section`
             }
             .avatar{
                 border-radius:50%;
-            }
+             }
             }
 
 
@@ -34,28 +38,33 @@ const HomeSection = styled.section`
                 display:flex;
                 flex-direction:column;
                 max-width:75%;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 24px;
                 &__title{
-                    color:#0969da;
-                    font-weight:600;
-                    font-size:1.5rem;
+                    color: #166CD7;
+                    margin-bottom:5px;
                     a{
                         color:#0969da;
                     }
                 }
                 &__secondary{
-                    color:var(--gray);
-                    margin-bottom:1rem;
-                    font-weight:600;
+                    color:var(--darkestGray);
+       
                 }
                 &__bio{
-                    color:var(--black);
-                    font-weight:600;
-                    margin-bottom:0.5rem;
+                    color:var(--primaryColor);
+                    font-size: 14px;
+                    line-height: 18px;
+                    margin-top:20px;
                 }
                 &__additionalInformation{
+                    margin-top:15px;
                     display:flex;
                     align-items:center;;
-                    color:var(--gray);
+                    font-size: 12px;
+                    line-height: 16px;
+                    color:var(--darkestGray);
                     .starIcon{
                         fill: var(--gray);
                         margin-right: 0.5rem;

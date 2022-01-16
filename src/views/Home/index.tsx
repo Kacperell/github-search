@@ -43,12 +43,11 @@ const Home: React.FC = () => {
     type: string
   }
   const [error, setError] = useState<errorInterface | null>(null);
-  const [resultsCount, setResultsCount] = useState<number>(0);
+  const [resultsCount, setResultsCount] = useState<number | null>(null);
   const [resultsList, setResultsList] = useState<listItemInterface[]>([]);
 
   // for the sake of simplicity, without pagination, we want max 40 results
   const searchQuery = `query {
- 
     users:search(type:USER,query:"${searchText ? searchText : defaultSearchOnStart}",first:25) {
          userCount   
       edges {
@@ -125,13 +124,15 @@ const Home: React.FC = () => {
 
 
   useEffect(() => {
-
     if (!searchText) {
       // In case someone removes all text from input field
-      setResultsCount(0);
-      setResultsList([]);
       return;
     }
+
+    //when someone typping we want to clear resultsand fetch data
+    setResultsCount(null);
+    setResultsList([]);
+
     fetchData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -147,12 +148,17 @@ const Home: React.FC = () => {
 
   return (
     <HomeSection>
-      <span className='resultCount'>
-        {resultsCount} results
-      </span>
+      <h1 className='resultCount'>
+        {resultsCount ? resultsCount : 0} results
+      </h1>
       {error &&
         <span>
           {error.message}
+        </span>
+      }
+      {!error && resultsCount === null &&
+        <span>
+          Loading..
         </span>
       }
       {resultsList.length > 0 &&
